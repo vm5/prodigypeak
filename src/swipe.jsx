@@ -6,7 +6,7 @@ const SwipePage = () => {
 
   useEffect(() => {
     const autoSwipeInterval = setInterval(() => {
-      setIndex(prevIndex => (prevIndex + 1) % pages.length); // Adjust to cycle through all slides
+      setIndex(prevIndex => (prevIndex + 1) % 4); // Change to next slide
     }, 3000); 
 
     return () => clearInterval(autoSwipeInterval); // Clean up interval on component unmount
@@ -25,7 +25,7 @@ const SwipePage = () => {
       title: "Join Us Today",
       description: "Join students who are excelling in their studies with Prodigy Peak.",
     },
-    {
+     {
       title: "Prodigy Peak introduces Career Guidance",
       description: "Connect with counsellors who have excelled in guiding students.",
     },
