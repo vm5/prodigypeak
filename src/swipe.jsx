@@ -19,7 +19,7 @@ const SwipePage = () => {
     },
     {
       title: "Enrollments Open!",
-      description: "Enrollments for Prodigy Peak for classes 8 to 10 are now open!",
+      description: "Enrollments for Prodigy Peak for classes 8 to 12 are now open!",
     },
     {
       title: "Join Us Today",
