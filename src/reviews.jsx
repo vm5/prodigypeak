@@ -31,10 +31,10 @@ const ReviewsPage = () => {
 // Keyframes for the sliding animation
 const slideLeft = keyframes`
   0% {
-    transform: translateX(0%);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 `;
 
@@ -46,6 +46,11 @@ const ReviewsContainer = styled.div`
   height: 450px;
   overflow: hidden;
   position: relative;
+
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 20px 10px;
+  }
 `;
 
 const ReviewsTitle = styled.h1`
@@ -53,17 +58,26 @@ const ReviewsTitle = styled.h1`
   color: #333;
   margin-bottom: 20px;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const ReviewsContent = styled.div`
   display: flex;
   white-space: nowrap;
   animation: ${slideLeft} 40s linear infinite;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    animation: none; /* Remove sliding animation on smaller screens */
+  }
 `;
 
 const ReviewItem = styled.div`
- display: inline-block;
-  width: 1800px;
+  display: inline-block;
+  width: 300px;
   padding: 20px;
   margin-right: 20px;
   background-color: #fff;
@@ -73,6 +87,12 @@ const ReviewItem = styled.div`
   color: #333;
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 `;
 
 const Quote = styled.p`
@@ -81,6 +101,10 @@ const Quote = styled.p`
   margin-bottom: 15px;
   font-style: italic;
   line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const Stars = styled.div`
@@ -94,6 +118,10 @@ const Reviewer = styled.p`
   color: #2980b9;
   text-align: right;
   margin-top: 10px;
+
+  @media (max-width: 768px) {
+    text-align: left;
+  }
 `;
 
 export default ReviewsPage;
