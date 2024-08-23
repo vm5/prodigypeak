@@ -341,6 +341,7 @@ const Footer = () => {
           </StyledLink>
         </LinkContainer>
         <p>&copy; 2024 Prodigy<HighlightedText>Peak</HighlightedText>. All rights reserved.</p>
+      <p>Version v1.0.0</p>
 
       <FloatingWhatsAppButton href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" />
