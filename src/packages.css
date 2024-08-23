@@ -1,0 +1,122 @@
+/* Moving background image for the entire page */
+.packages-container {
+    padding: 60px 20px;
+    background: url('https://img.freepik.com/free-photo/beautiful-night-sky-with-shiny-stars_53876-139684.jpg') no-repeat center center;
+    background-size: cover;
+    animation: moveBg 30s linear infinite;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+@keyframes moveBg {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+.packages-title {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 40px;
+    animation: fadeInDown 1.5s ease-in-out;
+    font-family: 'Verdana';
+    font-weight: 'bold';
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.package-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 1.5s ease-in-out;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.package-name {
+    font-size: 2rem;
+    color: #0056b3;
+    margin-bottom: 15px;
+    font-family: 'Verdana';
+    font-weight: 'bold';
+}
+
+.package-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+    font-family: 'Verdana';
+    font-weight: 'bold';
+}
+
+.package-features {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    font-family: 'Verdana';
+    font-weight: 'bold';
+}
+
+.package-features li {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    font-family: 'Verdana';
+    font-weight: 'bold';
+}
+
+.package-features li::before {
+    content: '✓';
+    color: #0056b3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    font-family: 'Verdana';
+    font-weight: 'bold';
+}
+
+/* Animation keyframes */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
