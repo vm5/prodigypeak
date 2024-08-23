@@ -114,21 +114,6 @@ const Logo = styled.img`
   display: block;
 `;
 
-const Lineup = styled.div`
-  margin-top: 20px;
-  padding: 10px;
-  background: #2c2c2c;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  color: #ccc;
-  animation: ${appear} 1s ease-in;
-
-  p {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-`;
 
 const FAQSection = styled.section`
   margin-bottom: 60px;
