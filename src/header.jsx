@@ -125,6 +125,7 @@ const DropdownContent = styled.ul`
     padding: 8px 12px;
     text-align: left;
     white-space: nowrap;
+    font-size: 1rem;
   }
 
   li:hover {
