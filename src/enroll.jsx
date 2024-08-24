@@ -131,11 +131,11 @@ const EnrollPage = () => {
                 <input
                   type="checkbox"
                   name="courses"
-                  value="Career Guidance"
+                  value="Counselling"
                   onChange={handleChange}
-                  checked={formData.courses.includes('Career Guidance')}
+                  checked={formData.courses.includes('Counselling')}
                 />
-                Career Guidance
+                Counselling
               </label>
             </CheckboxContainer>
           </InputField>
