@@ -125,7 +125,6 @@ const DropdownContent = styled.ul`
     padding: 8px 12px;
     text-align: left;
     white-space: nowrap;
-    font-size: 1rem;
   }
 
   li:hover {
@@ -168,17 +167,37 @@ const NavLinks = styled.div`
   }
 `;
 
-const SignInButton = styled.button`
+const Button = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: 'Verdana';
+  color: lightblue;
+  font-size: 15px;
+  transition: color 0.3s;
+
+  img {
+    width: 24px;
+    height: auto;
+    margin-right: 8px;
+  }
+
+  &:hover {
+    color: #3399ff;
+  }
+`;
+
+const SignInButton = styled(Button)`
   position: fixed;
   top: 10px;
   right: 20px; /* Adjusted for better placement */
   background-color: #333;
   color: #fff;
-  border: none;
   border-radius: 5px;
   padding: 12px 24px;
   font-size: 1rem;
-  font-family: 'Verdana';
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -209,12 +228,12 @@ const SignInButton = styled.button`
 
 function Header() {
   const [isSignedIn, setIsSignedIn] = useState(false);
-  
+  const [isThere, setIsThere] = useState(false);
 
   const handleSignIn = () => {
     if (!isSignedIn) {
       setIsSignedIn(true);
-      const middlePosition = document.body.scrollHeight / 1.5;
+      const middlePosition = document.body.scrollHeight / 1.6;
       window.scrollTo({
         top: middlePosition,
         behavior: 'smooth',
@@ -224,6 +243,18 @@ function Header() {
     }
   };
 
+  const handleDash = () => {
+    if (!isThere) {
+      setIsThere(true);
+      const middlePosition = document.body.scrollHeight / 1.5;
+      window.scrollTo({
+        top: middlePosition,
+        behavior: 'smooth',
+      });
+    } else {
+      window.location.href = '/';
+    }
+  };
 
   return (
     <HeaderContainer>
@@ -242,24 +273,24 @@ function Header() {
           <img src="/home-removebg-preview (1).png" alt="Home" />
           Home
         </a>
-        <a href="https://prodigyannouncements.netlify.app/" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-        <img src="/horn-removebg-preview (2).png" alt="Horn" />
-          Announcements for registered students
-        </a>
-        <a href = "https://prodigytests.netlify.app/" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-        <img src="/test-removebg-preview.png" alt="Horn" />
+        <Button onClick={handleDash}>
+          <img src="/horn-removebg-preview (2).png" alt="Horn" />
+          Dashboard for registered students and teachers
+        </Button>
+        <a href="https://prodigytests.netlify.app/" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+          <img src="/test-removebg-preview.png" alt="Test Series" />
           Test series
         </a>
         <Dropdown>
           <a href="/">
-          <img src="/book-removebg-preview.png" alt="Book" />
+            <img src="/book-removebg-preview.png" alt="Book" />
             Courses Offered
           </a>
           <DropdownContent>
             <li>Physics</li>
             <li>Chemistry</li>
             <li>Mathematics</li>
-            <li>Career Guidance (new)</li>
+            <li>Counselling (new)</li>
           </DropdownContent>
         </Dropdown>
         <a href="#bottom" onClick={() => window.scrollTo({ top: document.body.scrollHeight / 1.4, behavior: 'smooth' })}>
