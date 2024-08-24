@@ -16,7 +16,7 @@ const PackagesOfferedPage = () => {
           features: [
             "Doubt clearing sessions",
             "Test series",
-            "Career Guidance"
+            "Counselling"
           ]
         },
         {
@@ -26,7 +26,7 @@ const PackagesOfferedPage = () => {
             "Live one-on-one class",
             "Doubt clearing sessions",
             "Test series",
-            "Career Guidance"
+            "Counselling"
           ]
         }
       ];
