@@ -28,11 +28,11 @@ const CoursePlansPage = () => {
           </CourseDescription>
         </Course>
 
-        {/* New Career Guidance Section */}
+        {/* Updated Section */}
         <Course>
-          <CourseTitle>Career Guidance</CourseTitle>
+          <CourseTitle>General Counselling</CourseTitle>
           <CourseDescription>
-            Introducing our new feature - Career Guidance! Whether you're unsure about which field to choose or need advice on how to navigate your career path, our experts are here to help. We provide personalized guidance sessions, tips for cracking interviews, and much more to help you make informed decisions and succeed in your chosen field.
+            Introducing our new feature - General Counselling! Whether you're unsure about your academic path or need advice on personal development, our experts are here to help. We provide personalized counselling sessions, strategies for academic success, and much more to support you in making informed decisions and achieving your goals.
           </CourseDescription>
         </Course>
       </Courses>
@@ -40,7 +40,7 @@ const CoursePlansPage = () => {
   );
 };
 
-// Animation for the courses
+// Animation for fading in
 const fadeIn = keyframes`
   0% {
     opacity: 0;
@@ -52,7 +52,7 @@ const fadeIn = keyframes`
   }
 `;
 
-// Animation for the course titles
+// Animation for pulsing effect on course titles
 const pulse = keyframes`
   0% {
     transform: scale(1);
@@ -66,40 +66,42 @@ const pulse = keyframes`
 `;
 
 const Container = styled.div`
-  padding: 20px;
-  background-color: #f9f9f9;
-  min-height: auto;
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  min-height: 100vh;
   animation: ${fadeIn} 1s ease-in-out;
 `;
 
 const Title = styled.h1`
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: #333;
+  margin-bottom: 20px;
+  font-family: 'Verdana';
+  letter-spacing: 1px;
 `;
 
 const Courses = styled.div`
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   animation: ${fadeIn} 1s ease-in-out;
 `;
 
 const Course = styled.div`
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 20px;
-  width: 30%;
+  width: 280px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   animation: ${fadeIn} 1.2s ease-in-out;
 
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
   }
 
   @media (max-width: 768px) {
@@ -112,20 +114,19 @@ const CourseTitle = styled.h2`
   font-size: 1.8rem;
   color: #0073e6;
   margin-bottom: 10px;
-  justify-content: center;
-  align-items: center;
   animation: ${pulse} 2s infinite;
+  text-align: center;
+
 
   &:hover {
     color: #005bb5;
-    transition: color 0.3s ease-in-out;
   }
 `;
 
 const CourseDescription = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #666;
-  margin-bottom: 15px;
+  line-height: 1.6;
 `;
 
 export default CoursePlansPage;
