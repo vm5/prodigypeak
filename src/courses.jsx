@@ -1,38 +1,43 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+// Image URLs
+const physicsImageUrl = 'https://static.vecteezy.com/system/resources/previews/002/753/566/original/dark-spiral-black-hole-on-galaxy-background-planet-and-physics-concept-design-illustration-vector.jpg';
+const chemistryImageUrl = 'https://static.vecteezy.com/system/resources/previews/021/916/442/non_2x/hexagonal-with-glowing-particles-on-dark-blue-background-science-technology-medicine-chemistry-data-network-background-design-illustration-vector.jpg';
+const mathematicsImageUrl = 'https://static.vecteezy.com/system/resources/previews/003/346/139/non_2x/dark-multicolor-rainbow-template-with-math-simbols-vector.jpg';
+const counsellingImageUrl = 'https://images.squarespace-cdn.com/content/v1/6554ee61aba49d06a7168d68/1700502671338-O11UZ1PLHOER96HFSUJ0/image-asset.jpeg?format=1500w';
+
 const CoursePlansPage = () => {
   return (
     <Container>
       <Title>Our Course Plans</Title>
       <hr />
       <Courses>
-        <Course>
+        <Course imageUrl={physicsImageUrl}>
           <CourseTitle>Physics</CourseTitle>
           <CourseDescription>
-            Explore the fundamental concepts of grade 8 to 12 Physics including Gravitation, Electricity, Human eye, sources of energy mechanics, electricity, magnetism, optics, and modern physics. All of these topics are covered with the best notes and all possible MCQs and subjective questions that could be asked in the examination through continuous tests.
+            Explore fundamental concepts of grade 8 to 12 Physics including Gravitation, Electricity, Human eye, sources of energy, mechanics, electricity, magnetism, optics, and modern physics. Covered with the best notes, MCQs, and subjective questions.
           </CourseDescription>
         </Course>
         
-        <Course>
+        <Course imageUrl={chemistryImageUrl}>
           <CourseTitle>Chemistry</CourseTitle>
           <CourseDescription>
-            Dive into the world of grade 8 to 12 Chemistry with topics ranging from organic chemistry to physical and inorganic chemistry. All topics are covered with the best notes and all possible MCQs and subjective questions that could be asked in the examination through continuous tests.
+            Dive into grade 8 to 12 Chemistry with topics from organic to inorganic chemistry. Includes top-notch notes, MCQs, and subjective questions.
           </CourseDescription>
         </Course>
         
-        <Course>
+        <Course imageUrl={mathematicsImageUrl}>
           <CourseTitle>Mathematics</CourseTitle>
           <CourseDescription>
-            Strengthen your mathematical skills with topics like algebra, calculus, probability, trigonometry, geometry, and statistics. All topics are covered with the best notes and all possible MCQs and subjective questions that could be asked in the examination through continuous tests.
+            Strengthen your skills with algebra, calculus, probability, trigonometry, geometry, and statistics. Comprehensive notes, MCQs, and subjective questions are included.
           </CourseDescription>
         </Course>
 
-        {/* Updated Section */}
-        <Course>
+        <Course imageUrl={counsellingImageUrl}>
           <CourseTitle>General Counselling</CourseTitle>
           <CourseDescription>
-            Introducing our new feature - General Counselling! Whether you're unsure about your academic path or need advice on personal development, our experts are here to help. We provide personalized counselling sessions, strategies for academic success, and much more to support you in making informed decisions and achieving your goals.
+            New feature - General Counselling! Get personalized advice on academic and personal development from our experts. Includes strategies for success and more.
           </CourseDescription>
         </Course>
       </Courses>
@@ -67,18 +72,21 @@ const pulse = keyframes`
 
 const Container = styled.div`
   padding: 40px 20px;
-  background-color: #f4f4f4;
+  background: url('/wave.png') no-repeat center center/cover;
   min-height: 100vh;
   animation: ${fadeIn} 1s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
 const Title = styled.h1`
   text-align: center;
-  font-size: 2.8rem;
-  color: #333;
+  font-size: 2.5rem;
+  color: #fff;
   margin-bottom: 20px;
-  font-family: 'Verdana';
+  font-family: 'Verdana', sans-serif;
   letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 `;
 
 const Courses = styled.div`
@@ -90,18 +98,21 @@ const Courses = styled.div`
 `;
 
 const Course = styled.div`
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   padding: 20px;
   width: 280px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: ${fadeIn} 1.2s ease-in-out;
+  background-image: url(${props => props.imageUrl});
+  background-size: cover;
+  background-position: center;
+  color: #fff;
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   }
 
   @media (max-width: 768px) {
@@ -111,22 +122,21 @@ const Course = styled.div`
 `;
 
 const CourseTitle = styled.h2`
-  font-size: 1.8rem;
-  color: #0073e6;
+  font-size: 1.6rem;
+  color: #fff;
   margin-bottom: 10px;
   animation: ${pulse} 2s infinite;
   text-align: center;
-
-
-  &:hover {
-    color: #005bb5;
-  }
+  font-family: 'Verdana';
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 `;
 
 const CourseDescription = styled.p`
-  font-size: 1.1rem;
-  color: #666;
-  line-height: 1.6;
+  font-size: 1rem;
+  color: #f0f0f0;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 10px;
 `;
 
 export default CoursePlansPage;
