@@ -1,65 +1,65 @@
-/* General Styles */
-.why-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+/* Keyframes for background animation */
+@keyframes moveBg {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Container styles */
+.why-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  text-align: center;
+  background: url('https://img.freepik.com/free-photo/books-assortment-with-dark-background_23-2148898297.jpg') no-repeat center center;
+  background-size: cover;
+  animation: moveBg 30s linear infinite;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Content styles */
 .why-content {
   max-width: 800px;
-  margin-bottom: 20px;
-  text-align: center;
+  width: 100%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .why-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.5em;
+  color: #0073e6;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .why-description {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
-}
-
-/* SVG Container Styles */
-.why-svg-container {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-}
-
-.why-svg {
-  width: 100%;
-  height: auto;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .why-title {
-    font-size: 1.25rem;
-  }
-
-  .why-description {
-    font-size: 0.9rem;
-  }
-
-  .why-svg-container {
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .why-title {
-    font-size: 1rem;
-  }
-
-  .why-description {
-    font-size: 0.8rem;
-  }
-
-  .why-svg-container {
-    max-width: 250px;
-  }
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
 }
