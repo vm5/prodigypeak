@@ -26,7 +26,7 @@ const SwipePage = () => {
       description: "Join students who are excelling in their studies with Prodigy Peak.",
     },
      {
-      title: "Prodigy Peak introduces Career Guidance",
+      title: "Prodigy Peak introduces Counselling!",
       description: "Connect with counsellors who have excelled in guiding students.",
     },
   ];
