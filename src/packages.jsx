@@ -196,7 +196,8 @@ const packages = [
     name: "Basic Package",
     description: "Includes essential practice materials and resources.",
     features: [
-      "Test series"
+      "Test series",
+      "Counselling"
     ]
   },
   {
