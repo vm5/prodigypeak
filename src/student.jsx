@@ -1,145 +1,9 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { studentData } from './data'; // Import the data from data.js
-import { teacherData } from './data2'; // Import the data from teacherData.js
+import styled from 'styled-components'; // Import styled-components
+import { studentData } from './data'; // Import student data
+import { teacherData } from './data2'; // Import teacher data
 
-const StudentSection = () => {
-  const [studentCode, setStudentCode] = useState('');
-  const [studentInfo, setStudentInfo] = useState(null);
-  const [showStudentDetails, setShowStudentDetails] = useState(false);
-  const [teacherCode, setTeacherCode] = useState('');
-  const [teacherInfo, setTeacherInfo] = useState(null);
-  const [showTeacherDetails, setShowTeacherDetails] = useState(false);
-
-  const handleStudentCodeSubmit = () => {
-    const data = studentData[studentCode];
-    if (data) {
-      setStudentInfo(data);
-      setShowStudentDetails(true);
-    } else {
-      alert('Invalid student code');
-    }
-  };
-
-  const handleTeacherCodeSubmit = () => {
-    const data = teacherData[teacherCode];
-    if (data) {
-      setTeacherInfo(data);
-      setShowTeacherDetails(true);
-    } else {
-      alert('Invalid teacher code');
-    }
-  };
-
-  return (
-    <Container>
-      <Section>
-        <Heading>Dashboard for Registered Students</Heading>
-        <Description>
-          Welcome to ProdigyPeak's dashboard! Please enter the student code assigned to you to access your information.
-        </Description>
-        <Input
-          type="text"
-          placeholder="Enter your student code.."
-          value={studentCode}
-          onChange={(e) => setStudentCode(e.target.value)}
-        />
-        <ButtonContainer>
-          <Button onClick={handleStudentCodeSubmit}>Submit Code</Button>
-        </ButtonContainer>
-
-        {showStudentDetails && studentInfo && (
-          <DetailsSection>
-            <WelcomeMessage>Welcome, {studentInfo.name}!</WelcomeMessage>
-            <Details>
-              <DetailItem><strong>Batch:</strong> {studentInfo.batch}</DetailItem>
-              <DetailItem><strong>Courses:</strong> {studentInfo.courses.join(', ')}</DetailItem>
-              <DetailItem><strong>Board:</strong> {studentInfo.board}</DetailItem>
-            </Details>
-
-            <LinksSection>
-              <LinkContainer>
-                <LinkTitle>Classes</LinkTitle>
-                <LinkPlaceholder>Link to Classes</LinkPlaceholder>
-              </LinkContainer>
-              <LinkContainer>
-                <LinkTitle>Deadlines</LinkTitle>
-                <LinkPlaceholder>Link to Deadlines</LinkPlaceholder>
-              </LinkContainer>
-              <LinkContainer>
-                <LinkTitle>Submissions</LinkTitle>
-                <LinkPlaceholder>Link to Submissions</LinkPlaceholder>
-              </LinkContainer>
-              <LinkContainer>
-                <LinkTitle>Assignment Dates</LinkTitle>
-                <LinkPlaceholder>Link to Assignment Dates</LinkPlaceholder>
-              </LinkContainer>
-            </LinksSection>
-          </DetailsSection>
-        )}
-      </Section>
-
-      <Section>
-        <Heading>Dashboard for Teachers</Heading>
-        <Description>
-          Welcome to ProdigyPeak's dashboard for teachers! Please enter the teacher code assigned to you to access your information.
-        </Description>
-        <Input
-          type="text"
-          placeholder="Enter your teacher code.."
-          value={teacherCode}
-          onChange={(e) => setTeacherCode(e.target.value)}
-        />
-        <ButtonContainer>
-          <Button onClick={handleTeacherCodeSubmit}>Submit Code</Button>
-        </ButtonContainer>
-
-        {showTeacherDetails && teacherInfo && (
-          <DetailsSection>
-            <WelcomeMessage>Welcome, {teacherInfo.name}!</WelcomeMessage>
-            <Details>
-              <DetailItem><strong>Department:</strong> {teacherInfo.department}</DetailItem>
-              <DetailItem>
-                <strong>Classes Assigned for Today:</strong>
-                <ClassList>
-                  {teacherInfo.classesAssigned.map((classInfo, index) => (
-                    <ClassItem key={index}>
-                      {classInfo.time} - {classInfo.subject}
-                    </ClassItem>
-                  ))}
-                </ClassList>
-              </DetailItem>
-            </Details>
-
-            <LinksSection>
-              <LinkContainer>
-                <LinkTitle>Classes</LinkTitle>
-                <LinkPlaceholder>Link to Classes</LinkPlaceholder>
-              </LinkContainer>
-              <LinkContainer>
-                <LinkTitle>Deadlines</LinkTitle>
-                <LinkPlaceholder>Link to Deadlines</LinkPlaceholder>
-              </LinkContainer>
-              <LinkContainer>
-                <LinkTitle>Submissions</LinkTitle>
-                <LinkPlaceholder>Link to Submissions</LinkPlaceholder>
-              </LinkContainer>
-              <LinkContainer>
-                <LinkTitle>Assignment Dates</LinkTitle>
-                <LinkPlaceholder>Link to Assignment Dates</LinkPlaceholder>
-              </LinkContainer>
-            </LinksSection>
-          </DetailsSection>
-        )}
-      </Section>
-    </Container>
-  );
-};
-
-export default StudentSection;
-
-/* Styled Components */
-
+// Define all styled components here
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -148,7 +12,7 @@ const Container = styled.div`
   background-color: #f5f5f5;
   min-height: 100vh;
   text-align: center;
-  background: url('sky-2668711_1280.jpg') no-repeat center center;
+  background: url('https://assets-global.website-files.com/5efb0b7816032fd33ce6059c/62d5bbc98f1e1333116cd204_Screen%20Shot%202021-10-07%20at%2012.36.png') no-repeat center center;
   background-size: cover;
   position: relative;
   z-index: 1;
@@ -159,7 +23,11 @@ const Section = styled.div`
   margin-bottom: 40px;
   width: 100%;
   max-width: 800px;
-  padding: 20px; /* Added padding */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
 `;
 
 const Heading = styled.h1`
@@ -172,7 +40,7 @@ const Heading = styled.h1`
 
 const Description = styled.p`
   font-size: 1.2em;
-  color: white;
+  color: #333;
   margin-bottom: 20px;
   line-height: 1.6;
   animation: fadeIn 1.5s ease-out;
@@ -190,7 +58,7 @@ const Input = styled.input`
 `;
 
 const ButtonContainer = styled.div`
-  margin-top: 20px; /* Added margin-top */
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 `;
@@ -213,12 +81,12 @@ const Button = styled.button`
 `;
 
 const DetailsSection = styled.div`
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
   padding: 20px;
   max-width: 600px;
   width: 100%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   animation: fadeIn 3s ease-out;
 `;
 
@@ -278,3 +146,119 @@ const ClassItem = styled.li`
   color: #333;
   margin-bottom: 5px;
 `;
+
+// The component definition
+const StudentSection = () => {
+  const [studentCode, setStudentCode] = useState('');
+  const [studentInfo, setStudentInfo] = useState(null);
+  const [showStudentDetails, setShowStudentDetails] = useState(false);
+  const [teacherCode, setTeacherCode] = useState('');
+  const [teacherInfo, setTeacherInfo] = useState(null);
+  const [showTeacherDetails, setShowTeacherDetails] = useState(false);
+
+  const handleStudentCodeSubmit = () => {
+    const data = studentData[studentCode];
+    if (data) {
+      setStudentInfo(data);
+      setShowStudentDetails(true);
+    } else {
+      alert('Invalid student code');
+    }
+  };
+
+  const handleTeacherCodeSubmit = () => {
+    const data = teacherData[teacherCode];
+    if (data) {
+      setTeacherInfo(data);
+      setShowTeacherDetails(true);
+    } else {
+      alert('Invalid teacher code');
+    }
+  };
+
+  return (
+    <Container>
+      <Section>
+        <Heading>Dashboard for Registered Students</Heading>
+        <Description>
+          Welcome to ProdigyPeak's dashboard! Please enter the student code assigned to you to access your information.
+        </Description>
+        <Input
+          type="text"
+          placeholder="Enter your student code.."
+          value={studentCode}
+          onChange={(e) => setStudentCode(e.target.value)}
+        />
+        <ButtonContainer>
+          <Button onClick={handleStudentCodeSubmit}>Submit Code</Button>
+        </ButtonContainer>
+
+        {showStudentDetails && studentInfo && (
+          <DetailsSection>
+            <WelcomeMessage>Welcome, {studentInfo.name}!</WelcomeMessage>
+            <Details>
+              <DetailItem><strong>Batch:</strong> {studentInfo.batch}</DetailItem>
+              <DetailItem><strong>Courses:</strong> {studentInfo.courses.join(', ')}</DetailItem>
+              <DetailItem><strong>Board:</strong> {studentInfo.board}</DetailItem>
+            </Details>
+
+            <LinksSection>
+              {['Classes', 'Deadlines', 'Submissions', 'Assignment Dates'].map((title, index) => (
+                <LinkContainer key={index}>
+                  <LinkTitle>{title}</LinkTitle>
+                  <LinkPlaceholder>Link to {title}</LinkPlaceholder>
+                </LinkContainer>
+              ))}
+            </LinksSection>
+          </DetailsSection>
+        )}
+      </Section>
+
+      <Section>
+        <Heading>Dashboard for Teachers</Heading>
+        <Description>
+          Welcome to ProdigyPeak's dashboard for teachers! Please enter the teacher code assigned to you to access your information.
+        </Description>
+        <Input
+          type="text"
+          placeholder="Enter your teacher code.."
+          value={teacherCode}
+          onChange={(e) => setTeacherCode(e.target.value)}
+        />
+        <ButtonContainer>
+          <Button onClick={handleTeacherCodeSubmit}>Submit Code</Button>
+        </ButtonContainer>
+
+        {showTeacherDetails && teacherInfo && (
+          <DetailsSection>
+            <WelcomeMessage>Welcome, {teacherInfo.name}!</WelcomeMessage>
+            <Details>
+              <DetailItem><strong>Department:</strong> {teacherInfo.department}</DetailItem>
+              <DetailItem>
+                <strong>Classes Assigned for Today:</strong>
+                <ClassList>
+                  {teacherInfo.classesAssigned.map((classInfo, index) => (
+                    <ClassItem key={index}>
+                      {classInfo.time} - {classInfo.subject}
+                    </ClassItem>
+                  ))}
+                </ClassList>
+              </DetailItem>
+            </Details>
+
+            <LinksSection>
+              {['Classes', 'Deadlines', 'Submissions', 'Assignment Dates'].map((title, index) => (
+                <LinkContainer key={index}>
+                  <LinkTitle>{title}</LinkTitle>
+                  <LinkPlaceholder>Link to {title}</LinkPlaceholder>
+                </LinkContainer>
+              ))}
+            </LinksSection>
+          </DetailsSection>
+        )}
+      </Section>
+    </Container>
+  );
+};
+
+export default StudentSection;
