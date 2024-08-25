@@ -134,7 +134,7 @@ const EnrollPage = () => {
                 <InputField>
                   <label>Courses:</label>
                   <CheckboxContainer>
-                    {['Physics', 'Chemistry', 'Math', 'Career Guidance'].map(course => (
+                    {['Physics', 'Chemistry', 'Math', 'Counselling'].map(course => (
                       <Checkbox key={course}>
                         <input
                           type="checkbox"
