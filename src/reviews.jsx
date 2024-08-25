@@ -5,7 +5,8 @@ import styled, { keyframes } from 'styled-components';
 const ReviewsPage = () => {
   return (
     <ReviewsContainer>
-      <ReviewsTitle>Prodigyians' Take!</ReviewsTitle> <hr />
+      <ReviewsTitle>Prodigyians' Take!</ReviewsTitle>
+      <hr />
       <ReviewsContent>
         <ReviewItem>
           <Quote>“The courses were insightful.</Quote>
@@ -40,6 +41,7 @@ const ReviewsPage = () => {
           <Stars>⭐⭐⭐⭐⭐</Stars>
           <Reviewer>- Rahul Deshmukh</Reviewer>
         </ReviewItem>
+
         <ReviewItem>
           <Quote>“The course structure was</Quote>
           <Quote>amazing. The challenges were fun</Quote>
@@ -56,10 +58,10 @@ const ReviewsPage = () => {
 // Keyframes for the sliding animation
 const slideLeft = keyframes`
   0% {
-    transform: translateX(0%);
+    transform: translateX(-15%);
   }
   100% {
-    transform: translateX(-20%);
+    transform: translateX(-25%);
   }
 `;
 
@@ -76,13 +78,14 @@ const fadeIn = keyframes`
 const ReviewsContainer = styled.div`
   padding: 40px 20px;
   text-align: center;
-  background-color: #f0f2f5;
+  background: linear-gradient(to right, #f0f2f5, #e0e0e0);
   width: 100%;
-  height: 500px;
+  min-height: 500px;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
+  border: 1px solid #ddd;
 `;
 
 const ReviewsTitle = styled.h1`
@@ -90,7 +93,7 @@ const ReviewsTitle = styled.h1`
   color: #2c3e50;
   margin-bottom: 20px;
   font-weight: bold;
-  font-family: 'Verdana', sans-serif;
+  font-family: 'Verdana';
   text-transform: uppercase;
   letter-spacing: 1px;
   animation: ${fadeIn} 2s ease-in-out;
@@ -99,24 +102,23 @@ const ReviewsTitle = styled.h1`
 const ReviewsContent = styled.div`
   display: flex;
   white-space: nowrap;
-  animation: ${slideLeft} 60s linear infinite;
-  padding: 10px;
+  animation: ${slideLeft} 30s linear infinite;
   gap: 20px;
+  padding: 10px;
 `;
 
 const ReviewItem = styled.div`
   display: inline-block;
-  width: 280px;
+  width: 300px;
   padding: 20px;
-  background-color: #ffffff;
+  background: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
-  text-align: left;
   color: #333;
-  box-sizing: border-box;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
   animation: ${fadeIn} 2s ease-in-out;
+  text-align: left;
 
   &:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
