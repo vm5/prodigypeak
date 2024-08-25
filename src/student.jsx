@@ -12,7 +12,7 @@ const Container = styled.div`
   background-color: #f5f5f5;
   min-height: 100vh;
   text-align: center;
-  background: url('https://assets-global.website-files.com/5efb0b7816032fd33ce6059c/62d5bbc98f1e1333116cd204_Screen%20Shot%202021-10-07%20at%2012.36.png') no-repeat center center;
+  background: url('https://plus.unsplash.com/premium_photo-1686050878751-89499d28d153?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmlnaHQlMjBza3l8ZW58MHx8MHx8fDA%3D') no-repeat center center;
   background-size: cover;
   position: relative;
   z-index: 1;
