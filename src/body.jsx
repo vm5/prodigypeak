@@ -50,7 +50,7 @@ function Body() {
   return (
     <SlidingDiv>
       <SlidingText>
-        Welcome to Prodigy <span>Peak</span>.Your go to platform if you want to succeed in Phyiscs, Chemistry and Mathematics. Enrollments for Prodigy <span>Peak</span> for classes 8 to 12 are now open! Prodigy Peak has also introduced career guidance as a new feature.
+        Welcome to Prodigy <span>Peak</span>.Your go to platform if you want to succeed in Phyiscs, Chemistry and Mathematics. Enrollments for Prodigy <span>Peak</span> for classes 8 to 12 are now open! Prodigy Peak has also introduced Counselling as a new feature.Scroll further to know more!
       </SlidingText>
     </SlidingDiv>
   );
