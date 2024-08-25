@@ -101,37 +101,6 @@ const StyledLogo = styled.img`
   }
 `;
 
-const Dropdown = styled.div`
-  position: relative;
-  display: inline-block;
-
-  &:hover > ul {
-    display: block;
-  }
-`;
-
-const DropdownContent = styled.ul`
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  padding: 12px 0;
-  list-style: none;
-  margin: 0;
-
-  li {
-    padding: 8px 12px;
-    text-align: left;
-    white-space: nowrap;
-  }
-
-  li:hover {
-    background-color: #f1f1f1;
-  }
-`;
-
 const NavLinks = styled.div`
   display: flex;
   align-items: center;
@@ -281,18 +250,6 @@ function Header() {
           <img src="/test-removebg-preview.png" alt="Test Series" />
           Test series
         </a>
-        <Dropdown>
-          <a href="/">
-            <img src="/book-removebg-preview.png" alt="Book" />
-            Courses Offered
-          </a>
-          <DropdownContent>
-            <li>Physics</li>
-            <li>Chemistry</li>
-            <li>Mathematics</li>
-            <li>Counselling (new)</li>
-          </DropdownContent>
-        </Dropdown>
         <a href="#bottom" onClick={() => window.scrollTo({ top: document.body.scrollHeight / 1.4, behavior: 'smooth' })}>
           <img src="/faq.png" alt="FAQS" />
           FAQS
