@@ -91,9 +91,9 @@ const Title = styled.h1`
 
 const Courses = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column; /* Change from wrap to column for vertical layout */
+  align-items: center; /* Center items horizontally */
+  gap: 20px; /* Space between course cards */
   animation: ${fadeIn} 1s ease-in-out;
 `;
 
@@ -101,7 +101,8 @@ const Course = styled.div`
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   padding: 20px;
-  width: 280px;
+  width: 100%; /* Full width of container */
+  max-width: 600px; /* Limit width of each card */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: ${fadeIn} 1.2s ease-in-out;
