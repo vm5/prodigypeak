@@ -81,7 +81,7 @@ const EnrollPage = () => {
     <PageWrapper>
       <PackagesContainer>
         <PackagesTitle>Explore Our Packages</PackagesTitle>
-        <PackagesGrid>
+        <PackagesList>
           {packages.map((pkg, index) => (
             <PackageCard key={index}>
               <PackageName>{pkg.name}</PackageName>
@@ -134,7 +134,7 @@ const EnrollPage = () => {
                 <InputField>
                   <label>Courses:</label>
                   <CheckboxContainer>
-                    {['Physics', 'Chemistry', 'Math', 'Counselling'].map(course => (
+                    {['Physics', 'Chemistry', 'Math', 'Career Guidance'].map(course => (
                       <Checkbox key={course}>
                         <input
                           type="checkbox"
@@ -184,7 +184,7 @@ const EnrollPage = () => {
               </EnrollForm>
             </PackageCard>
           ))}
-        </PackagesGrid>
+        </PackagesList>
       </PackagesContainer>
     </PageWrapper>
   );
@@ -196,8 +196,7 @@ const packages = [
     name: "Basic Package",
     description: "Includes essential practice materials and resources.",
     features: [
-      "Test series",
-      "Counselling"
+      "Test series"
     ]
   },
   {
@@ -278,10 +277,10 @@ const PackagesTitle = styled.h2`
   animation: ${slideDown} 0.6s ease;
 `;
 
-const PackagesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+const PackagesList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between package cards */
 `;
 
 const PackageCard = styled.div`
@@ -291,10 +290,6 @@ const PackageCard = styled.div`
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  }
   animation: ${slideDown} 0.8s ease;
 `;
 
