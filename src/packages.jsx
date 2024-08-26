@@ -96,10 +96,10 @@ const EnrollPage = () => {
               </PackageFeatures>
               <EnrollForm onSubmit={(e) => handleSubmit(pkg.name, e)}>
                 <InputField>
-                  <label htmlFor={name-${pkg.name}}>Name:</label>
+                  <label htmlFor={`name-${pkg.name}`}>Name:</label>
                   <input
                     type="text"
-                    id={name-${pkg.name}}
+                    id={`name-${pkg.name}`}
                     name="name"
                     value={formData[pkg.name]?.name || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -108,10 +108,10 @@ const EnrollPage = () => {
                 </InputField>
 
                 <InputField>
-                  <label htmlFor={email-${pkg.name}}>Email:</label>
+                  <label htmlFor={`email-${pkg.name}`}>Email:</label>
                   <input
                     type="email"
-                    id={email-${pkg.name}}
+                    id={`email-${pkg.name}`}
                     name="email"
                     value={formData[pkg.name]?.email || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -120,10 +120,10 @@ const EnrollPage = () => {
                 </InputField>
 
                 <InputField>
-                  <label htmlFor={phone-${pkg.name}}>Phone:</label>
+                  <label htmlFor={`phone-${pkg.name}`}>Phone:</label>
                   <input
                     type="tel"
-                    id={phone-${pkg.name}}
+                    id={`phone-${pkg.name}`}
                     name="phone"
                     value={formData[pkg.name]?.phone || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -134,27 +134,27 @@ const EnrollPage = () => {
                 <InputField>
                   <label>Courses:</label>
                   <CheckboxContainer>
-                    {['Physics', 'Chemistry', 'Math', 'Counselling'].map(course => (
+                    {['Physics', 'Chemistry', 'Math', 'Career Guidance'].map(course => (
                       <Checkbox key={course}>
                         <input
                           type="checkbox"
-                          id={${course}-${pkg.name}}
+                          id={`${course}-${pkg.name}`}
                           name="courses"
                           value={course}
                           onChange={(e) => handleChange(pkg.name, e)}
                           checked={formData[pkg.name]?.courses.includes(course) || false}
                         />
                         <span className="checkmark"></span>
-                        <label htmlFor={${course}-${pkg.name}}>{course}</label>
+                        <label htmlFor={`${course}-${pkg.name}`}>{course}</label>
                       </Checkbox>
                     ))}
                   </CheckboxContainer>
                 </InputField>
 
                 <InputField>
-                  <label htmlFor={board-${pkg.name}}>Board:</label>
+                  <label htmlFor={`board-${pkg.name}`}>Board:</label>
                   <select
-                    id={board-${pkg.name}}
+                    id={`board-${pkg.name}`}
                     name="board"
                     value={formData[pkg.name]?.board || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -167,9 +167,9 @@ const EnrollPage = () => {
                 </InputField>
 
                 <InputField>
-                  <label htmlFor={message-${pkg.name}}>Additional queries (if any):</label>
+                  <label htmlFor={`message-${pkg.name}`}>Additional queries (if any):</label>
                   <textarea
-                    id={message-${pkg.name}}
+                    id={`message-${pkg.name}`}
                     name="message"
                     value={formData[pkg.name]?.message || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -196,8 +196,7 @@ const packages = [
     name: "Basic Package",
     description: "Includes essential practice materials and resources.",
     features: [
-      "Test series",
-      "Counselling"
+      "Test series"
     ]
   },
   {
