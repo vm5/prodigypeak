@@ -248,8 +248,31 @@ const FloatingWhatsAppButton = styled.a`
     height: 24px;
     margin-right: 10px;
   }
-`;
 
+  @media (max-width: 768px) {
+    padding: 8px 16px;
+    font-size: 14px;
+    bottom: 15px;
+    right: 15px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 6px 12px;
+    font-size: 12px;
+    bottom: 10px;
+    right: 10px;
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+`;
 
 const Footer = () => {
   const [feedback, setFeedback] = useState('');
