@@ -81,7 +81,7 @@ const EnrollPage = () => {
     <PageWrapper>
       <PackagesContainer>
         <PackagesTitle>Explore Our Packages</PackagesTitle>
-        <PackagesList>
+        <PackagesGrid>
           {packages.map((pkg, index) => (
             <PackageCard key={index}>
               <PackageName>{pkg.name}</PackageName>
@@ -96,10 +96,10 @@ const EnrollPage = () => {
               </PackageFeatures>
               <EnrollForm onSubmit={(e) => handleSubmit(pkg.name, e)}>
                 <InputField>
-                  <label htmlFor={`name-${pkg.name}`}>Name:</label>
+                  <label htmlFor={name-${pkg.name}}>Name:</label>
                   <input
                     type="text"
-                    id={`name-${pkg.name}`}
+                    id={name-${pkg.name}}
                     name="name"
                     value={formData[pkg.name]?.name || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -108,10 +108,10 @@ const EnrollPage = () => {
                 </InputField>
 
                 <InputField>
-                  <label htmlFor={`email-${pkg.name}`}>Email:</label>
+                  <label htmlFor={email-${pkg.name}}>Email:</label>
                   <input
                     type="email"
-                    id={`email-${pkg.name}`}
+                    id={email-${pkg.name}}
                     name="email"
                     value={formData[pkg.name]?.email || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -120,10 +120,10 @@ const EnrollPage = () => {
                 </InputField>
 
                 <InputField>
-                  <label htmlFor={`phone-${pkg.name}`}>Phone:</label>
+                  <label htmlFor={phone-${pkg.name}}>Phone:</label>
                   <input
                     type="tel"
-                    id={`phone-${pkg.name}`}
+                    id={phone-${pkg.name}}
                     name="phone"
                     value={formData[pkg.name]?.phone || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -134,27 +134,27 @@ const EnrollPage = () => {
                 <InputField>
                   <label>Courses:</label>
                   <CheckboxContainer>
-                    {['Physics', 'Chemistry', 'Math', 'Career Guidance'].map(course => (
+                    {['Physics', 'Chemistry', 'Math', 'Counselling'].map(course => (
                       <Checkbox key={course}>
                         <input
                           type="checkbox"
-                          id={`${course}-${pkg.name}`}
+                          id={${course}-${pkg.name}}
                           name="courses"
                           value={course}
                           onChange={(e) => handleChange(pkg.name, e)}
                           checked={formData[pkg.name]?.courses.includes(course) || false}
                         />
                         <span className="checkmark"></span>
-                        <label htmlFor={`${course}-${pkg.name}`}>{course}</label>
+                        <label htmlFor={${course}-${pkg.name}}>{course}</label>
                       </Checkbox>
                     ))}
                   </CheckboxContainer>
                 </InputField>
 
                 <InputField>
-                  <label htmlFor={`board-${pkg.name}`}>Board:</label>
+                  <label htmlFor={board-${pkg.name}}>Board:</label>
                   <select
-                    id={`board-${pkg.name}`}
+                    id={board-${pkg.name}}
                     name="board"
                     value={formData[pkg.name]?.board || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -167,9 +167,9 @@ const EnrollPage = () => {
                 </InputField>
 
                 <InputField>
-                  <label htmlFor={`message-${pkg.name}`}>Additional queries (if any):</label>
+                  <label htmlFor={message-${pkg.name}}>Additional queries (if any):</label>
                   <textarea
-                    id={`message-${pkg.name}`}
+                    id={message-${pkg.name}}
                     name="message"
                     value={formData[pkg.name]?.message || ''}
                     onChange={(e) => handleChange(pkg.name, e)}
@@ -184,7 +184,7 @@ const EnrollPage = () => {
               </EnrollForm>
             </PackageCard>
           ))}
-        </PackagesList>
+        </PackagesGrid>
       </PackagesContainer>
     </PageWrapper>
   );
@@ -196,7 +196,8 @@ const packages = [
     name: "Basic Package",
     description: "Includes essential practice materials and resources.",
     features: [
-      "Test series"
+      "Test series",
+      "Counselling"
     ]
   },
   {
@@ -277,10 +278,10 @@ const PackagesTitle = styled.h2`
   animation: ${slideDown} 0.6s ease;
 `;
 
-const PackagesList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Space between package cards */
+const PackagesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 `;
 
 const PackageCard = styled.div`
@@ -290,6 +291,10 @@ const PackageCard = styled.div`
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
   animation: ${slideDown} 0.8s ease;
 `;
 
