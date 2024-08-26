@@ -12,7 +12,6 @@ import WhyProdigyPeakPage from './why';
 import CoursePlansPage from './courses';
 import ReviewsPage from './reviews';
 import Footer from './footer';
-import StudentSection from './student';
 
 function App() {
   useEffect(() => {
@@ -64,10 +63,7 @@ function App() {
         <PackagesOfferedPage />
       </div>
 
-      {/* Student Section with zoom-out animation */}
-      <div data-aos="zoom-out">
-        <StudentSection />
-      </div>
+     
 
       {/* Footer with fade-up animation */}
       <div data-aos="fade-up">
