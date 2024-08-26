@@ -159,7 +159,7 @@ const Button = styled.button`
 `;
 
 const SignInButton = styled(Button)`
-  position: sticky;
+  position: fixed;
   top: 10px;
   right: 20px; /* Adjusted for better placement */
   background-color: #333;
@@ -171,7 +171,7 @@ const SignInButton = styled(Button)`
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  z-index: 2000;
+  z-index: 200000;
 
   &:hover {
     background-color: #357ae8;
