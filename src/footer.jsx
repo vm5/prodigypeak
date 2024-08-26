@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import emailjs from 'emailjs-com';
 
+
 // Define keyframes for animations
 const fadeIn = keyframes`
   from {
@@ -23,30 +24,51 @@ const slideIn = keyframes`
   }
 `;
 
-
 // Styled components
 const FooterContainer = styled.footer`
-  background: #111;
-  color: white;
-  padding: 40px 20px;
+  background: #121212; /* Darker background for modern look */
+  color: #f1f1f1;
+  padding: 60px 20px;
   text-align: center;
-  border-top: 1px solid #444;
-  position: relative;
+  border-top: 1px solid #333;
   width: 100%;
   font-family: 'Verdana', sans-serif;
   animation: ${fadeIn} 1s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const HighlightedText = styled.span`
   color: #6a1b9a;
   font-weight: bold;
 `;
+const GetStarted = styled.div`
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #6a1b9a;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  border-radius: 8px;
+`;
+
+const Divider = styled.hr`
+  margin: 40px auto;
+  width: 80%;
+  border: 0;
+  border-top: 2px solid #444;
+`;
+
 
 const AdditionalContent = styled.div`
   margin-top: 40px;
   font-size: 16px;
   animation: ${slideIn} 1s ease-out;
   text-align: center;
+  max-width: 800px;
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -97,6 +119,15 @@ const StyledLink = styled.a`
     height: 24px;
     margin-right: 10px;
   }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  }
 `;
 
 const Logo = styled.img`
@@ -104,10 +135,19 @@ const Logo = styled.img`
   height: auto;
   margin: 30px auto;
   display: block;
+  
+  @media (max-width: 768px) {
+    width: 130px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 110px;
+  }
 `;
 
 const FAQSection = styled.section`
   margin-bottom: 60px;
+  width: 100%;
 `;
 
 const FAQTitle = styled.h2`
@@ -132,6 +172,14 @@ const FAQContainer = styled.div`
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 15px;
+  }
 `;
 
 const FAQBox = styled.div`
@@ -143,6 +191,14 @@ const FAQBox = styled.div`
   width: 100%;
   max-width: 300px;
   color: #ddd;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (max-width: 480px) {
+    padding: 15px;
+  }
 `;
 
 const Question = styled.h3`
@@ -159,17 +215,19 @@ const Answer = styled.p`
 const FeedbackSection = styled.section`
   margin-bottom: 60px;
   background: #2c2c2c;
-  padding: 20px;
+  padding: 30px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   animation: ${fadeIn} 1.5s ease-out;
+  width: 100%;
+  max-width: 800px;
 
   @media (max-width: 768px) {
-    padding: 15px;
+    padding: 25px 15px;
   }
 
   @media (max-width: 480px) {
-    padding: 10px;
+    padding: 20px 10px;
   }
 `;
 
@@ -204,6 +262,10 @@ const FeedbackForm = styled.form`
     color: #fff;
     resize: vertical;
     font-size: 1rem;
+
+    &::placeholder {
+      color: #bbb;
+    }
   }
 
   button {
@@ -220,10 +282,33 @@ const FeedbackForm = styled.form`
       background: #8e24aa;
     }
   }
+
+  @media (max-width: 480px) {
+    button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+`;
+
+const FooterBottom = styled.div`
+  margin-top: 40px;
+  text-align: center;
+  color: #aaa;
+
+  p {
+    margin: 5px 0;
+  }
+
+  @media (max-width: 480px) {
+    p {
+      font-size: 0.9rem;
+    }
+  }
 `;
 
 const FloatingWhatsAppButton = styled.a`
-  position: fixed;
+  position: sticky;
   bottom: 20px;
   right: 20px;
   background-color: #25d366; /* WhatsApp green */
@@ -236,6 +321,7 @@ const FloatingWhatsAppButton = styled.a`
   font-weight: bold;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100000; /* Keep it on top of other content */
   transition: background-color 0.3s ease, transform 0.3s ease;
 
   &:hover {
@@ -248,31 +334,8 @@ const FloatingWhatsAppButton = styled.a`
     height: 24px;
     margin-right: 10px;
   }
-
-  @media (max-width: 768px) {
-    padding: 8px 16px;
-    font-size: 14px;
-    bottom: 15px;
-    right: 15px;
-
-    img {
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 6px 12px;
-    font-size: 12px;
-    bottom: 10px;
-    right: 10px;
-
-    img {
-      width: 18px;
-      height: 18px;
-    }
-  }
 `;
+
 
 const Footer = () => {
   const [feedback, setFeedback] = useState('');
@@ -292,13 +355,17 @@ const Footer = () => {
 
   return (
     <FooterContainer>
+      <GetStarted>Get In Touch</GetStarted>
+      <p>We would love to hear from you to give you our best service!</p>
+      
+      <Divider />
       <FAQSection>
         <FAQTitle>FREQUENTLY ASKED QUESTIONS</FAQTitle>
         <FAQSubtitle>Get all your queries answered!</FAQSubtitle>
         <FAQContainer>
           <FAQBox>
             <Question>What subjects are offered?</Question>
-            <Answer>We offer Physics, Chemistry and Mathematics for grades 8 to 12.</Answer>
+            <Answer>We offer Physics, Chemistry, and Mathematics for grades 8 to 12.</Answer>
           </FAQBox>
           <FAQBox>
             <Question>Are the classes online or in-person?</Question>
@@ -320,7 +387,7 @@ const Footer = () => {
       </FAQSection>
 
       <AdditionalContent>
-        <Logo src="/prodigy-removebg-preview (1).png" alt="prodigypeak Logo" />
+        <Logo src="/prodigy-removebg-preview (1).png" alt="ProdigyPeak Logo" />
         <p>Welcome to our Prodigy Peak. We provide personalized learning experiences to help you excel academically. Join us to start your journey to success!</p>
       </AdditionalContent>
 
@@ -328,19 +395,34 @@ const Footer = () => {
         <FeedbackTitle>Give Us Your Feedback</FeedbackTitle>
         <FeedbackDescription>Your feedback helps us improve. Let us know how we're doing or suggest any improvements you would like to see.</FeedbackDescription>
         <FeedbackForm onSubmit={handleSubmit}>
-          <textarea name="feedback" value={feedback} onChange={(e) => setFeedback(e.target.value)} placeholder="Enter your feedback here..." required></textarea>
+          <textarea
+            name="feedback"
+            value={feedback}
+            onChange={(e) => setFeedback(e.target.value)}
+            placeholder="Enter your feedback here..."
+            required
+          ></textarea>
           <button type="submit">Submit Feedback</button>
         </FeedbackForm>
         {status && <p>{status}</p>}
       </FeedbackSection>
+
       <LinkContainer>
-          <StyledLink href="mailto:prodigypeak1.0@gmail.com">
-            <img src="/gmail-removebg-preview.png" alt="Mail" />
-            Mail us your queries at prodigypeak1.0@gmail.com
-          </StyledLink>
-        </LinkContainer>
+        <StyledLink href="mailto:prodigypeak1.0@gmail.com">
+          <img src="/gmail-removebg-preview.png" alt="Mail" />
+          Mail us your queries at prodigypeak1.0@gmail.com 
+        </StyledLink>
+        <StyledLink>
+        <img src="/contactus-removebg-preview.png" alt = "contact" />
+        Contact us at (+91) 8951475102
+        </StyledLink>
+      </LinkContainer>
+
+
+      <FooterBottom>
         <p>&copy; 2024 Prodigy<HighlightedText>Peak</HighlightedText>. All rights reserved.</p>
-      <p>Version v1.0.0</p>
+        <p>Version v1.0.0</p>
+      </FooterBottom>
 
       <FloatingWhatsAppButton href="https://wa.me/918951475102" target="_blank" rel="noopener noreferrer">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" />
