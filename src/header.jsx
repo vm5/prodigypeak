@@ -26,6 +26,7 @@ const slideDown = keyframes`
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 20px;
   background: black;
   border-bottom: 2px solid #3399ff;
@@ -35,7 +36,6 @@ const HeaderContainer = styled.header`
   z-index: 1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   animation: ${fadeIn} 2.5s ease-in-out;
-  justify-content: space-between;
   flex-wrap: wrap;
 
   @media (max-width: 768px) {
@@ -52,39 +52,13 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const SlidingHeading = styled.h1`
+const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  animation: ${slideDown} 3s ease-out;
-  font-family: 'Verdana';
-  color: grey;
-  margin: 0;
-  font-size: 2.3rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.2rem;
-  }
-
-  span {
-    color: purple;
-  }
-`;
-
-const LogoContainer = styled.div`
   margin-right: 20px;
 
   @media (max-width: 768px) {
-    margin-right: 15px;
-  }
-
-  @media (max-width: 480px) {
-    margin-right: 10px;
+    margin-right: 0;
   }
 `;
 
@@ -98,6 +72,29 @@ const StyledLogo = styled.img`
 
   @media (max-width: 480px) {
     width: 50px; /* Adjust size for small screens */
+  }
+`;
+
+const SlidingHeading = styled.h1`
+  animation: ${slideDown} 3s ease-out;
+  font-family: 'Verdana';
+  color: grey;
+  margin: 0;
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+
+  span {
+    color: purple;
   }
 `;
 
@@ -159,9 +156,6 @@ const Button = styled.button`
 `;
 
 const SignInButton = styled(Button)`
-  position: fixed;
-  top: 10px;
-  right: 20px; /* Adjusted for better placement */
   background-color: #333;
   color: #fff;
   border-radius: 5px;
@@ -172,6 +166,10 @@ const SignInButton = styled(Button)`
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   z-index: 200000;
+  position: absolute; /* Using absolute positioning to place the button */
+
+  top: 10px;
+  right: 20px;
 
   &:hover {
     background-color: #357ae8;
@@ -231,11 +229,12 @@ function Header() {
         <img src="/dm-removebg-preview.png" alt="Google Logo" />
         {isSignedIn ? 'Exit' : 'Enroll now'}
       </SignInButton>
+      <LogoContainer>
+        <StyledLogo src="/prodigy-removebg-preview (1).png" alt="Prodigy Logo" />
+      </LogoContainer>
       <SlidingHeading>
-        <LogoContainer>
-          <StyledLogo src="/prodigy-removebg-preview (1).png" alt="Prodigy Logo" />
-          <h1>ELEVATE YOUR POTENTIAL</h1>
-        </LogoContainer>
+        ELEVATE YOUR POTENTIAL
+        <br />
         Prodigy<span>Peak</span>
       </SlidingHeading>
       <NavLinks>
