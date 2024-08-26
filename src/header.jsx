@@ -159,7 +159,7 @@ const Button = styled.button`
 `;
 
 const SignInButton = styled(Button)`
-  position: fixed;
+  position: sticky;
   top: 10px;
   right: 20px; /* Adjusted for better placement */
   background-color: #333;
