@@ -234,6 +234,7 @@ function Header() {
       <SlidingHeading>
         <LogoContainer>
           <StyledLogo src="/prodigy-removebg-preview (1).png" alt="Prodigy Logo" />
+          <h1>ELEVATE YOUR POTENTIAL</h1>
         </LogoContainer>
         Prodigy<span>Peak</span>
       </SlidingHeading>
