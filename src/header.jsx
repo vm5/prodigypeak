@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+// Animation Keyframes
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -23,6 +24,7 @@ const slideDown = keyframes`
   }
 `;
 
+// Styled Components
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
@@ -51,6 +53,7 @@ const HeaderContainer = styled.header`
     width: 100%;
   }
 `;
+
 const SmallHeading = styled.h4`
   display: flex;
   align-items: center;
@@ -88,15 +91,15 @@ const LogoContainer = styled.div`
 `;
 
 const StyledLogo = styled.img`
-  width: 80px; /* Adjust size as needed */
+  width: 80px;
   height: auto;
 
   @media (max-width: 768px) {
-    width: 60px; /* Adjust size for medium screens */
+    width: 60px;
   }
 
   @media (max-width: 480px) {
-    width: 50px; /* Adjust size for small screens */
+    width: 50px;
   }
 `;
 
@@ -120,6 +123,10 @@ const NavLinks = styled.div`
       width: 24px;
       height: auto;
       margin-right: 8px;
+    }
+
+    &:hover {
+      color: #3399ff;
     }
   }
 
@@ -160,7 +167,7 @@ const Button = styled.button`
 const SignInButton = styled(Button)`
   position: fixed;
   top: 10px;
-  right: 20px; /* Adjusted for better placement */
+  right: 20px;
   background-color: #333;
   color: #fff;
   border-radius: 5px;
@@ -193,6 +200,7 @@ const SignInButton = styled(Button)`
     padding: 8px 16px;
   }
 `;
+
 const SlidingHeading = styled.div`
   display: flex;
   flex-direction: column;
@@ -222,9 +230,9 @@ const SlidingHeading = styled.div`
   }
 `;
 
+// Header Component
 function Header() {
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const [isThere, setIsThere] = useState(false);
 
   const handleSignIn = () => {
     if (!isSignedIn) {
@@ -239,18 +247,7 @@ function Header() {
     }
   };
 
-  const handleDash = () => {
-    if (!isThere) {
-      setIsThere(true);
-      const middlePosition = document.body.scrollHeight / 1.5;
-      window.scrollTo({
-        top: middlePosition,
-        behavior: 'smooth',
-      });
-    } else {
-      window.location.href = '/';
-    }
-  };
+
 
   return (
     <HeaderContainer>
@@ -272,15 +269,24 @@ function Header() {
           <img src="/home-removebg-preview (1).png" alt="Home" />
           Home
         </a>
-        <Button onClick={handleDash}>
+        <a
+          href="https://prodigypeakdashboard.netlify.app/"
+          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+        >
           <img src="/horn-removebg-preview (2).png" alt="Horn" />
           Dashboard for registered students and teachers
-        </Button>
-        <a href="https://prodigytests.netlify.app/" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+        </a>
+        <a
+          href="https://prodigytests.netlify.app/"
+          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+        >
           <img src="/test-removebg-preview.png" alt="Test Series" />
           Test series
         </a>
-        <a href="#bottom" onClick={() => window.scrollTo({ top: document.body.scrollHeight / 1.4, behavior: 'smooth' })}>
+        <a
+          href="#bottom"
+          onClick={() => window.scrollTo({ top: document.body.scrollHeight / 1.4, behavior: 'smooth' })}
+        >
           <img src="/faq.png" alt="FAQS" />
           FAQS
         </a>
