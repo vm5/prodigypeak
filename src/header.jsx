@@ -115,7 +115,7 @@ const NavLinks = styled.div`
     text-decoration: none;
     font-weight: normal;
     color: lightblue;
-    font-size: 15px;
+    font-size: 20px;
     transition: color 0.3s;
     padding: 5px;
 
