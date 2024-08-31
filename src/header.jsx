@@ -39,7 +39,6 @@ const HeaderContainer = styled.header`
   animation: ${fadeIn} 2.5s ease-in-out;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 100%;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -51,7 +50,6 @@ const HeaderContainer = styled.header`
   @media (max-width: 480px) {
     font-size: 1.2rem;
     padding: 10px;
-    flex-direction: column;
     width: 100%;
   }
 `;
@@ -68,11 +66,11 @@ const SmallHeading = styled.h4`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   span {
@@ -84,13 +82,11 @@ const LogoContainer = styled.div`
   margin-right: 20px;
 
   @media (max-width: 768px) {
-    margin-right: 0;
-    margin-bottom: 10px;
+    margin-right: 15px;
   }
 
   @media (max-width: 480px) {
-    margin-right: 0;
-    margin-bottom: 8px;
+    margin-right: 10px;
   }
 `;
 
@@ -119,7 +115,7 @@ const NavLinks = styled.div`
     text-decoration: none;
     font-weight: normal;
     color: lightblue;
-    font-size: 20px;
+    font-size: 18px;
     transition: color 0.3s;
     padding: 5px;
 
@@ -137,13 +133,11 @@ const NavLinks = styled.div`
   @media (max-width: 768px) {
     gap: 15px;
     font-size: 14px;
-    flex-wrap: wrap;
   }
 
   @media (max-width: 480px) {
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 5px;
     font-size: 12px;
   }
 `;
@@ -204,8 +198,6 @@ const SignInButton = styled(Button)`
   @media (max-width: 480px) {
     font-size: 0.8rem;
     padding: 8px 16px;
-    right: 10px;
-    top: 8px;
   }
 `;
 
@@ -220,7 +212,6 @@ const SlidingHeading = styled.div`
   font-size: 2.3rem;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -232,6 +223,10 @@ const SlidingHeading = styled.div`
 
   span {
     color: purple;
+  }
+
+  .heading-container {
+    text-align: center;
   }
 `;
 
@@ -251,6 +246,8 @@ function Header() {
       window.location.href = '/';
     }
   };
+
+
 
   return (
     <HeaderContainer>
