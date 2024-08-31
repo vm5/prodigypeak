@@ -4,221 +4,157 @@ import styled, { keyframes } from 'styled-components';
 
 // EnrollPage Component
 const EnrollPage = () => {
-  const [formData, setFormData] = useState(
-    packages.reduce((acc, pkg) => ({
-      ...acc,
-      [pkg.name]: {
-        name: '',
-        email: '',
-        phone: '',
-        courses: [],
-        board: '',
-        message: '',
-      }
-    }), {})
-  );
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    courses: [],
+    board: '',
+    message: '',
+  });
 
-  const [isSuccess, setIsSuccess] = useState({});
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleChange = (pkgName, e) => {
+  const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (type === 'checkbox') {
       setFormData(prevState => ({
         ...prevState,
-        [pkgName]: {
-          ...prevState[pkgName],
-          courses: checked
-            ? [...prevState[pkgName].courses, value]
-            : prevState[pkgName].courses.filter(course => course !== value),
-        },
+        courses: checked
+          ? [...prevState.courses, value]
+          : prevState.courses.filter(course => course !== value),
       }));
     } else {
       setFormData(prevState => ({
         ...prevState,
-        [pkgName]: {
-          ...prevState[pkgName],
-          [name]: value,
-        },
+        [name]: value,
       }));
     }
   };
 
-  const handleSubmit = (pkgName, e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = {
-      ...formData[pkgName],
-      packageName: pkgName
-    };
-
-    emailjs.send('service_1n40l6w', 'template_9cx5776', data, '6nOOASpoY_MKxgook')
+    emailjs.send('service_1n40l6w', 'template_9cx5776', formData, '6nOOASpoY_MKxgook')
       .then(() => {
-        setIsSuccess(prevState => ({
-          ...prevState,
-          [pkgName]: true
-        }));
-        setFormData(prevState => ({
-          ...prevState,
-          [pkgName]: {
-            name: '',
-            email: '',
-            phone: '',
-            courses: [],
-            board: '',
-            message: '',
-          }
-        }));
+        setIsSuccess(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          courses: [],
+          board: '',
+          message: '',
+        });
       })
       .catch(() => {
-        setIsSuccess(prevState => ({
-          ...prevState,
-          [pkgName]: false
-        }));
+        setIsSuccess(false);
       });
   };
 
   return (
     <PageWrapper>
       <PackagesContainer>
-        <PackagesTitle>Explore Our Packages</PackagesTitle>
-        <PackagesGrid>
-          {packages.map((pkg, index) => (
-            <PackageCard key={index}>
-              <PackageName>{pkg.name}</PackageName>
-              <PackageDescription>{pkg.description}</PackageDescription>
-              <PackageFeatures>
-                {pkg.features.map((feature, i) => (
-                  <Feature key={i}>
-                    <Checkmark>✔</Checkmark>
-                    {feature}
-                  </Feature>
+        <PackagesTitle>Enroll into ProdigyPeak today!</PackagesTitle>
+        <PackageCard>
+          <PackageName>Comprehensive Course Plan</PackageName>
+          <PackageDescription>Includes extensive resources and personalized support.</PackageDescription>
+          <PackageDescription>Live one on one classes.</PackageDescription>
+          <PackageDescription>Intensive course material and tests with personal attention.</PackageDescription>
+          <PackageDescription>Fill in the following details to enroll now!</PackageDescription>
+          <EnrollForm onSubmit={handleSubmit}>
+            <InputField>
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </InputField>
+
+            <InputField>
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </InputField>
+
+            <InputField>
+              <label htmlFor="phone">Phone:</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+            </InputField>
+
+            <InputField>
+              <label>Courses that you want to enroll for:</label>
+              <CheckboxContainer>
+                {['Physics', 'Chemistry', 'Mathematics'].map(course => (
+                  <Checkbox key={course}>
+                    <input
+                      type="checkbox"
+                      id={course}
+                      name="courses"
+                      value={course}
+                      onChange={handleChange}
+                      checked={formData.courses.includes(course)}
+                    />
+                    <span className="checkmark"></span>
+                    <label htmlFor={course}>{course}</label>
+                  </Checkbox>
                 ))}
-              </PackageFeatures>
-              <EnrollForm onSubmit={(e) => handleSubmit(pkg.name, e)}>
-                <InputField>
-                  <label htmlFor={`name-${pkg.name}`}>Name:</label>
-                  <input
-                    type="text"
-                    id={`name-${pkg.name}`}
-                    name="name"
-                    value={formData[pkg.name]?.name || ''}
-                    onChange={(e) => handleChange(pkg.name, e)}
-                    required
-                  />
-                </InputField>
+              </CheckboxContainer>
+            </InputField>
 
-                <InputField>
-                  <label htmlFor={`email-${pkg.name}`}>Email:</label>
-                  <input
-                    type="email"
-                    id={`email-${pkg.name}`}
-                    name="email"
-                    value={formData[pkg.name]?.email || ''}
-                    onChange={(e) => handleChange(pkg.name, e)}
-                    required
-                  />
-                </InputField>
+            <InputField>
+              <label htmlFor="board">Board:</label>
+              <select
+                id="board"
+                name="board"
+                value={formData.board}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select your board</option>
+                <option value="CBSE">CBSE</option>
+                <option value="ICSE">ICSE</option>
+              </select>
+            </InputField>
 
-                <InputField>
-                  <label htmlFor={`phone-${pkg.name}`}>Phone:</label>
-                  <input
-                    type="tel"
-                    id={`phone-${pkg.name}`}
-                    name="phone"
-                    value={formData[pkg.name]?.phone || ''}
-                    onChange={(e) => handleChange(pkg.name, e)}
-                    required
-                  />
-                </InputField>
+            <InputField>
+              <label htmlFor="message">Additional queries (if any):</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="4"
+              />
+            </InputField>
 
-                <InputField>
-                  <label>Courses:</label>
-                  <CheckboxContainer>
-                    {['Physics', 'Chemistry', 'Math', 'Career Guidance'].map(course => (
-                      <Checkbox key={course}>
-                        <input
-                          type="checkbox"
-                          id={`${course}-${pkg.name}`}
-                          name="courses"
-                          value={course}
-                          onChange={(e) => handleChange(pkg.name, e)}
-                          checked={formData[pkg.name]?.courses.includes(course) || false}
-                        />
-                        <span className="checkmark"></span>
-                        <label htmlFor={`${course}-${pkg.name}`}>{course}</label>
-                      </Checkbox>
-                    ))}
-                  </CheckboxContainer>
-                </InputField>
+            <SubmitButton type="submit">Enroll Now</SubmitButton>
 
-                <InputField>
-                  <label htmlFor={`board-${pkg.name}`}>Board:</label>
-                  <select
-                    id={`board-${pkg.name}`}
-                    name="board"
-                    value={formData[pkg.name]?.board || ''}
-                    onChange={(e) => handleChange(pkg.name, e)}
-                    required
-                  >
-                    <option value="">Select your board</option>
-                    <option value="CBSE">CBSE</option>
-                    <option value="ICSE">ICSE</option>
-                  </select>
-                </InputField>
-
-                <InputField>
-                  <label htmlFor={`message-${pkg.name}`}>Additional queries (if any):</label>
-                  <textarea
-                    id={`message-${pkg.name}`}
-                    name="message"
-                    value={formData[pkg.name]?.message || ''}
-                    onChange={(e) => handleChange(pkg.name, e)}
-                    rows="4"
-                  />
-                </InputField>
-
-                <SubmitButton type="submit">Enroll Now</SubmitButton>
-
-                {isSuccess[pkg.name] === true && <SuccessMessage>Your enrollment request for {pkg.name} has been sent successfully!</SuccessMessage>}
-                {isSuccess[pkg.name] === false && <ErrorMessage>There was an error submitting your request for {pkg.name}. Please try again.</ErrorMessage>}
-              </EnrollForm>
-            </PackageCard>
-          ))}
-        </PackagesGrid>
+            {isSuccess && <SuccessMessage>Your enrollment request has been sent successfully!</SuccessMessage>}
+            {!isSuccess && <ErrorMessage>There was an error submitting your request. Please try again.</ErrorMessage>}
+          </EnrollForm>
+        </PackageCard>
       </PackagesContainer>
     </PageWrapper>
   );
 };
-
-// Packages Data
-const packages = [
-  {
-    name: "Basic Package",
-    description: "Includes essential practice materials and resources.",
-    features: [
-      "Test series"
-    ]
-  },
-  {
-    name: "Standard Package",
-    description: "Offers in-depth coverage with additional resources and support.",
-    features: [
-      "Doubt clearing sessions",
-      "Test series",
-      "Counselling"
-    ]
-  },
-  {
-    name: "Premium Package",
-    description: "Comprehensive support with personalized attention and extensive resources.",
-    features: [
-      "Live one-on-one class",
-      "Doubt clearing sessions",
-      "Test series",
-      "Counselling"
-    ]
-  }
-];
 
 // Animations
 const fadeIn = keyframes`
@@ -277,12 +213,6 @@ const PackagesTitle = styled.h2`
   animation: ${slideDown} 0.6s ease;
 `;
 
-const PackagesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-`;
-
 const PackageCard = styled.div`
   background: #fff;
   border-radius: 12px;
@@ -290,10 +220,6 @@ const PackageCard = styled.div`
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  }
   animation: ${slideDown} 0.8s ease;
 `;
 
@@ -307,25 +233,8 @@ const PackageDescription = styled.p`
   font-size: 1rem;
   color: #555;
   margin-bottom: 20px;
-`;
-
-const PackageFeatures = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
-`;
-
-const Feature = styled.li`
-  font-size: 1rem;
-  color: #333;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-`;
-
-const Checkmark = styled.span`
-  color: #28a745;
-  margin-right: 10px;
+  font-weight: bold;
+  font-family:'Verdana';
 `;
 
 const EnrollForm = styled.form`
