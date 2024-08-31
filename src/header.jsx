@@ -237,7 +237,7 @@ function Header() {
   const handleSignIn = () => {
     if (!isSignedIn) {
       setIsSignedIn(true);
-      const middlePosition = document.body.scrollHeight / 2.7;
+      const middlePosition = document.body.scrollHeight / 2.3;
       window.scrollTo({
         top: middlePosition,
         behavior: 'smooth',
