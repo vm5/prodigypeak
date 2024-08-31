@@ -29,14 +29,14 @@ const SlidingText = styled.span`
     font-size: 14px;
   }
     span{
-    color: black;
+    color: yellow;
     }
 `;
 
 const SlidingDiv = styled.div`
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(to right, orange,red);
+  background: #111;
   padding: 10px 0;
   box-sizing: border-box;
   z-index: 0;
@@ -50,7 +50,7 @@ function Body() {
   return (
     <SlidingDiv>
       <SlidingText>
-        Welcome to Prodigy <span>Peak</span>.Your go to platform if you want to succeed in Phyiscs, Chemistry and Mathematics. Enrollments for Prodigy <span>Peak</span> for classes 8 to 12 are now open! Prodigy Peak has also introduced Counselling as a new feature.Scroll further to know more!
+        Welcome to Prodigy <span>Peak</span>.Your go to platform if you want to succeed in Phyiscs, Chemistry and Mathematics. Enrollments for Prodigy <span>Peak</span> for classes 8 to 12 are now open! 
       </SlidingText>
     </SlidingDiv>
   );
