@@ -50,6 +50,47 @@ const ReviewsPage = () => {
           <Stars>⭐⭐⭐⭐⭐</Stars>
           <Reviewer>- Arjun Rao</Reviewer>
         </ReviewItem>
+
+        {/* Additional Reviews */}
+        <ReviewItem>
+          <Quote>“A great experience overall. The</Quote>
+          <Quote>material was engaging and</Quote>
+          <Quote> the instructors were knowledgeable.”</Quote>
+          <Stars>⭐⭐⭐⭐</Stars>
+          <Reviewer>- Anisha Patel</Reviewer>
+        </ReviewItem>
+
+        <ReviewItem>
+          <Quote>“I appreciated the hands-on approach</Quote>
+          <Quote>and practical examples. Really</Quote>
+          <Quote> helped solidify my learning.”</Quote>
+          <Stars>⭐⭐⭐⭐⭐</Stars>
+          <Reviewer>- Aman Kumar</Reviewer>
+        </ReviewItem>
+
+        <ReviewItem>
+          <Quote>“The support from the tutors was</Quote>
+          <Quote> exceptional, and the resources were</Quote>
+          <Quote> very useful. Would definitely recommend!”</Quote>
+          <Stars>⭐⭐⭐⭐⭐</Stars>
+          <Reviewer>- Priya Nair</Reviewer>
+        </ReviewItem>
+
+        <ReviewItem>
+          <Quote>“The course exceeded my expectations.</Quote>
+          <Quote>Great content, excellent delivery,”</Quote>
+          <Quote> and a very supportive community.”</Quote>
+          <Stars>⭐⭐⭐⭐⭐</Stars>
+          <Reviewer>- Rajesh Kumar</Reviewer>
+        </ReviewItem>
+
+        <ReviewItem>
+          <Quote>“Very informative and well-organized. I</Quote>
+          <Quote> felt more confident in my studies after</Quote>
+          <Quote> completing the course.”</Quote>
+          <Stars>⭐⭐⭐⭐</Stars>
+          <Reviewer>- Sneha Reddy</Reviewer>
+        </ReviewItem>
       </ReviewsContent>
     </ReviewsContainer>
   );
@@ -58,10 +99,10 @@ const ReviewsPage = () => {
 // Keyframes for the sliding animation
 const slideLeft = keyframes`
   0% {
-    transform: translateX(-15%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-25%);
+    transform: translateX(-50%);
   }
 `;
 
@@ -102,7 +143,7 @@ const ReviewsTitle = styled.h1`
 const ReviewsContent = styled.div`
   display: flex;
   white-space: nowrap;
-  animation: ${slideLeft} 30s linear infinite;
+  animation: ${slideLeft} 20s linear infinite;
   gap: 20px;
   padding: 10px;
 `;
@@ -129,7 +170,7 @@ const ReviewItem = styled.div`
 const Quote = styled.p`
   font-size: 1rem;
   color: #333;
-  font-family: 'Verdana', sans-serif;
+  font-family: 'Verdana';
   font-weight: 400;
   margin-bottom: 15px;
   font-style: italic;
