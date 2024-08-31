@@ -5,7 +5,6 @@ import styled, { keyframes } from 'styled-components';
 const physicsImageUrl = 'https://static.vecteezy.com/system/resources/previews/002/753/566/original/dark-spiral-black-hole-on-galaxy-background-planet-and-physics-concept-design-illustration-vector.jpg';
 const chemistryImageUrl = 'https://static.vecteezy.com/system/resources/previews/021/916/442/non_2x/hexagonal-with-glowing-particles-on-dark-blue-background-science-technology-medicine-chemistry-data-network-background-design-illustration-vector.jpg';
 const mathematicsImageUrl = 'https://static.vecteezy.com/system/resources/previews/003/346/139/non_2x/dark-multicolor-rainbow-template-with-math-simbols-vector.jpg';
-const counsellingImageUrl = 'https://images.squarespace-cdn.com/content/v1/6554ee61aba49d06a7168d68/1700502671338-O11UZ1PLHOER96HFSUJ0/image-asset.jpeg?format=1500w';
 
 const CoursePlansPage = () => {
   return (
@@ -31,13 +30,6 @@ const CoursePlansPage = () => {
           <CourseTitle>Mathematics</CourseTitle>
           <CourseDescription>
             Strengthen your skills with algebra, calculus, probability, trigonometry, geometry, and statistics. Comprehensive notes, MCQs, and subjective questions are included.
-          </CourseDescription>
-        </Course>
-
-        <Course imageUrl={counsellingImageUrl}>
-          <CourseTitle>General Counselling</CourseTitle>
-          <CourseDescription>
-            New feature - General Counselling! Get personalized advice on academic and personal development from our experts. Includes strategies for success and more.
           </CourseDescription>
         </Course>
       </Courses>
@@ -91,9 +83,9 @@ const Title = styled.h1`
 
 const Courses = styled.div`
   display: flex;
-  flex-direction: column; /* Change from wrap to column for vertical layout */
-  align-items: center; /* Center items horizontally */
-  gap: 20px; /* Space between course cards */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   animation: ${fadeIn} 1s ease-in-out;
 `;
 
@@ -101,8 +93,7 @@ const Course = styled.div`
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   padding: 20px;
-  width: 100%; /* Full width of container */
-  max-width: 600px; /* Limit width of each card */
+  width: 280px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: ${fadeIn} 1.2s ease-in-out;
