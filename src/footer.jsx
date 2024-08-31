@@ -308,7 +308,7 @@ const FooterBottom = styled.div`
 `;
 
 const FloatingWhatsAppButton = styled.a`
-  position: sticky;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   background-color: #25d366; /* WhatsApp green */
@@ -368,12 +368,36 @@ const Footer = () => {
             <Answer>We offer Physics, Chemistry, and Mathematics for grades 8 to 12.</Answer>
           </FAQBox>
           <FAQBox>
-            <Question>Are the classes online or in-person?</Question>
-            <Answer>We offer online classes.</Answer>
+            <Question>Who are the teachers?</Question>
+            <Answer>Our teachers are highly qualified and experienced in their respective subjects. They have a proven track record of helping students achieve excellent academic results.</Answer>
           </FAQBox>
           <FAQBox>
-            <Question>What are the class timings?</Question>
-            <Answer>Class timings are flexible and can be adjusted based on your schedule.</Answer>
+            <Question>How are the classes conducted?</Question>
+            <Answer>Our classes are conducted live through an online platform, allowing students to interact with teachers in real-time.</Answer>
+          </FAQBox>
+          <FAQBox>
+            <Question>What are the class schedule?</Question>
+            <Answer>Classes are scheduled after school hours and on weekends to accommodate students' regular school activities.</Answer>
+          </FAQBox>
+          <FAQBox>
+            <Question>Do you provide study materials?</Question>
+            <Answer>Yes, we provide comprehensive study materials, including notes, assignments, and practice questions.</Answer>
+          </FAQBox>
+          <FAQBox>
+            <Question>Can I attend a demo class before enrolling?</Question>
+            <Answer>Absolutely! We offer free demo classes for each subject. This allows you to experience our teaching style and decide if it's the right fit for you.</Answer>
+          </FAQBox>
+          <FAQBox>
+            <Question>How are doubts clarified during the classes?</Question>
+            <Answer>Students can ask questions during the live sessions, and there is also a dedicated doubt-clearing session every week. Additionally, students can post their questions on our forum, where teachers  provide answers.</Answer>
+          </FAQBox>
+          <FAQBox>
+            <Question>Is there any provision for mock tests or exams?</Question>
+            <Answer>Yes, we conduct regular mock tests and practice exams to help students prepare for their school exams and competitive exams. Detailed feedback is provided to help students improve.</Answer>
+          </FAQBox>
+          <FAQBox>
+            <Question>What is our track record?</Question>
+            <Answer>Our teachers have a strong track record of teaching board toppers in a traditional online setup and come with years of experience in the education field. We are committed to providing high-quality education and are confident that students will see significant improvement after joining our classes.</Answer>
           </FAQBox>
           <FAQBox>
             <Question>How can I enroll?</Question>
